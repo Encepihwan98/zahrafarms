@@ -1,0 +1,148 @@
+@extends('users.master')
+
+@section('subheader')
+<!-- Breadcrumb Section Begin -->
+<div class="breacrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                    <span>Artikel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section Begin -->
+@endsection
+
+@section('content')
+
+<section class="blog-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1">
+                    <div class="blog-sidebar">
+                        <div class="search-form">
+                            <h4>Search</h4>
+                            <form action="#">
+                                <input type="text" placeholder="Search . . .  ">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="blog-catagory">
+                            <h4>Categories</h4>
+                            <ul>
+                                <li><a href="#">Fashion</a></li>
+                                <li><a href="#">Travel</a></li>
+                                <li><a href="#">Picnic</a></li>
+                                <li><a href="#">Model</a></li>
+                            </ul>
+                        </div>
+                        <div class="recent-post">
+                            <h4>Recent Post</h4>
+                            <div class="recent-blog">
+                                <a href="#" class="rb-item">
+                                    <div class="rb-pic">
+                                        <img src="{{url('theme/img/blog/recent-1.jpg')}} " alt="">
+                                    </div>
+                                    <div class="rb-text">
+                                        <h6>The Personality Trait That Makes...</h6>
+                                        <p>Fashion <span>- May 19, 2019</span></p>
+                                    </div>
+                                </a>
+                                <a href="#" class="rb-item">
+                                    <div class="rb-pic">
+                                        <img src="{{url('theme/img/blog/recent-2.jpg')}}" alt="">
+                                    </div>
+                                    <div class="rb-text">
+                                        <h6>The Personality Trait That Makes...</h6>
+                                        <p>Fashion <span>- May 19, 2019</span></p>
+                                    </div>
+                                </a>
+                                <a href="#" class="rb-item">
+                                    <div class="rb-pic">
+                                        <img src="{{url('theme/img/blog/recent-3.jpg')}}" alt="">
+                                    </div>
+                                    <div class="rb-text">
+                                        <h6>The Personality Trait That Makes...</h6>
+                                        <p>Fashion <span>- May 19, 2019</span></p>
+                                    </div>
+                                </a>
+                                <a href="#" class="rb-item">
+                                    <div class="rb-pic">
+                                        <img src="{{url('theme/img/blog/recent-4.jpg')}}" alt="">
+                                    </div>
+                                    <div class="rb-text">
+                                        <h6>The Personality Trait That Makes...</h6>
+                                        <p>Fashion <span>- May 19, 2019</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col-lg-9 order-1 order-lg-2">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="blog-item">
+                                <div class="bi-pic">
+                                    <img src="{{url('theme/img/blog/blog-1.jpg')}}" alt="">
+                                </div>
+                                <div class="bi-text">
+                                    <a href="/Artikel/detail">
+                                        <h4>The Personality Trait That Makes People Happier</h4>
+                                    </a>
+                                    <p>travel <span>- May 19, 2019</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="blog-item">
+                                <div class="bi-pic">
+                                    <img src="{{url('theme/img/blog/blog-2.jpg')}}" alt="">
+                                </div>
+                                <div class="bi-text">
+                                    <a href="/Artikel/detail">
+                                        <h4>This was one of our first days in Hawaii last week.</h4>
+                                    </a>
+                                    <p>Fashion <span>- May 19, 2019</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="blog-item">
+                                <div class="bi-pic">
+                                    <img src="{{url('theme/img/blog/blog-3.jpg')}}" alt="">
+                                </div>
+                                <div class="bi-text">
+                                    <a href="/Artikel/detail">
+                                        <h4>Last week I had my first work trip of the year to Sonoma Valley</h4>
+                                    </a>
+                                    <p>travel <span>- May 19, 2019</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="blog-item">
+                                <div class="bi-pic">
+                                    <img src="{{url('theme/img/blog/blog-4.jpg')}}" alt="">
+                                </div>
+                                <div class="bi-text">
+                                    <a href="./blog-details.html">
+                                        <h4>Happppppy New Year! I know I am a little late on this post</h4>
+                                    </a>
+                                    <p>Fashion <span>- May 19, 2019</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+@endsection
