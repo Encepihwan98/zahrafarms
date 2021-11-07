@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{url('theme/css/jquery-ui.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{url('theme/css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{url('theme/css/style.css')}}" type="text/css">
+    @yield('style')
 </head>
 
 <body>
@@ -188,6 +189,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{{url('theme/js/jquery.slicknav.js')}}"></script>
     <script src="{{url('theme/js/owl.carousel.min.js')}}"></script>
     <script src="{{url('theme/js/main.js')}}"></script>
+    @yield('js')
 </body>
 
 </html>
