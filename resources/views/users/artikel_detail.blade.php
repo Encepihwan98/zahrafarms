@@ -22,19 +22,19 @@
 <section class="blog-details spad">
     <div class="container">
         <div class="row">
-            @foreach($artikel as $data)
+            
             <div class="col-lg-12">
                 <div class="blog-details-inner">
                     <div class="blog-detail-title">
-                        <h2>{{$data->judul}}</h2>
-                        <p>{{$data->kategori}} <span>- May 19, 2019</span></p>
+                        <h2>{{$artikel->judul}}</h2>
+                        <p>{{$artikel->kategori}} <span>- May 19, 2019</span></p>
                     </div>
                     <div class="blog-large-pic">
                         <img src="{{url('theme/img/blog/blog-detail.jpg')}}" alt="">
                     </div>
                     <div class="blog-detail-desc">
                         <p>
-                            {{$data->isi}}
+                            {{$artikel->isi}}
                         </p>
                     </div>
                    
@@ -88,7 +88,7 @@
                     </div> -->
                 </div>
             </div>
-            @endforeach
+            
         </div>
     </div>
 </section>

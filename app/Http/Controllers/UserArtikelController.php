@@ -22,7 +22,9 @@ class UserArtikelController extends Controller
     {
         $data = Blog::find($id);
         /* dump($blogs); */
+
         return view('users.artikel_detail', ['artikel' => $data]);
+        
     }
 
     /**
