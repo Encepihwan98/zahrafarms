@@ -68,8 +68,7 @@
                         <a href=""><span class="fa fa-pencil-square"></span></a>
                         <a href="" onclick="confirm('yakin akan di hapus?')"><span class="fa fa-trash"></span></a>
                       </td>
-                    </tr>
-                    
+                      </tr>
                   </tbody>
                 </table>
               </div>

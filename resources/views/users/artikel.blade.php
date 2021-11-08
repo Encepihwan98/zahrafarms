@@ -34,51 +34,25 @@
                         <div class="blog-catagory">
                             <h4>Categories</h4>
                             <ul>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Travel</a></li>
-                                <li><a href="#">Picnic</a></li>
-                                <li><a href="#">Model</a></li>
+                                @foreach($artikel as $value)
+                                    <li><a href="#">{{$value->kategori}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="recent-post">
                             <h4>Recent Post</h4>
                             <div class="recent-blog">
+                                @foreach($artikel as $recent)
                                 <a href="#" class="rb-item">
                                     <div class="rb-pic">
-                                        <img src="{{url('theme/img/blog/recent-1.jpg')}} " alt="">
+                                        <img src="{{url('/data_file/'.$recent->foto)}} " alt="">
                                     </div>
                                     <div class="rb-text">
-                                        <h6>The Personality Trait That Makes...</h6>
-                                        <p>Fashion <span>- May 19, 2019</span></p>
+                                        <h6>{{ \Illuminate\Support\Str::limit($recent->judul, 30, '....')}}</h6>
+                                        <p>{{$recent->kategori}} <span>- May 19, 2019</span></p>
                                     </div>
                                 </a>
-                                <a href="#" class="rb-item">
-                                    <div class="rb-pic">
-                                        <img src="{{url('theme/img/blog/recent-2.jpg')}}" alt="">
-                                    </div>
-                                    <div class="rb-text">
-                                        <h6>The Personality Trait That Makes...</h6>
-                                        <p>Fashion <span>- May 19, 2019</span></p>
-                                    </div>
-                                </a>
-                                <a href="#" class="rb-item">
-                                    <div class="rb-pic">
-                                        <img src="{{url('theme/img/blog/recent-3.jpg')}}" alt="">
-                                    </div>
-                                    <div class="rb-text">
-                                        <h6>The Personality Trait That Makes...</h6>
-                                        <p>Fashion <span>- May 19, 2019</span></p>
-                                    </div>
-                                </a>
-                                <a href="#" class="rb-item">
-                                    <div class="rb-pic">
-                                        <img src="{{url('theme/img/blog/recent-4.jpg')}}" alt="">
-                                    </div>
-                                    <div class="rb-text">
-                                        <h6>The Personality Trait That Makes...</h6>
-                                        <p>Fashion <span>- May 19, 2019</span></p>
-                                    </div>
-                                </a>
+                                @endforeach
                             </div>
                         </div>
                        
@@ -86,58 +60,24 @@
                 </div>
                 <div class="col-lg-9 order-1 order-lg-2">
                     <div class="row">
+
+                    @foreach($artikel as $data)
+
                         <div class="col-lg-6 col-sm-6">
                             <div class="blog-item">
                                 <div class="bi-pic">
-                                    <img src="{{url('theme/img/blog/blog-1.jpg')}}" alt="">
+                                    <img src="{{url('/data_file/'.$data->foto)}}" alt="">
                                 </div>
                                 <div class="bi-text">
-                                    <a href="/Artikel/detail">
-                                        <h4>The Personality Trait That Makes People Happier</h4>
+                                    <a href="/readmore/{{$data->id}}">
+                                        <h4>{{$data->judul}}</h4>
                                     </a>
-                                    <p>travel <span>- May 19, 2019</span></p>
+                                    <p>{{$data->kategori}} <span>- May 19, 2019</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-sm-6">
-                            <div class="blog-item">
-                                <div class="bi-pic">
-                                    <img src="{{url('theme/img/blog/blog-2.jpg')}}" alt="">
-                                </div>
-                                <div class="bi-text">
-                                    <a href="/Artikel/detail">
-                                        <h4>This was one of our first days in Hawaii last week.</h4>
-                                    </a>
-                                    <p>Fashion <span>- May 19, 2019</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6">
-                            <div class="blog-item">
-                                <div class="bi-pic">
-                                    <img src="{{url('theme/img/blog/blog-3.jpg')}}" alt="">
-                                </div>
-                                <div class="bi-text">
-                                    <a href="/Artikel/detail">
-                                        <h4>Last week I had my first work trip of the year to Sonoma Valley</h4>
-                                    </a>
-                                    <p>travel <span>- May 19, 2019</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6">
-                            <div class="blog-item">
-                                <div class="bi-pic">
-                                    <img src="{{url('theme/img/blog/blog-4.jpg')}}" alt="">
-                                </div>
-                                <div class="bi-text">
-                                    <a href="./blog-details.html">
-                                        <h4>Happppppy New Year! I know I am a little late on this post</h4>
-                                    </a>
-                                    <p>Fashion <span>- May 19, 2019</span></p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        
                         
                     </div>
                 </div>

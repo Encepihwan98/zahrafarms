@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Blog;
 
 class UserArtikelController extends Controller
 {
@@ -13,7 +14,15 @@ class UserArtikelController extends Controller
      */
     public function index()
     {
-        return view('users.artikel');
+        $data = BLog::all();
+        return view('users.artikel',['artikel' => $data]);
+    }
+
+    public function readmore($id)
+    {
+        $data = Blog::find($id);
+        /* dump($blogs); */
+        return view('users.artikel_detail', ['artikel' => $data]);
     }
 
     /**
@@ -21,10 +30,7 @@ class UserArtikelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function artikelDetail()
-    {
-        return view('users.artikel_detail');
-    }
+   
 
     /**
      * Store a newly created resource in storage.

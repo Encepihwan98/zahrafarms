@@ -50,8 +50,10 @@ Route::get('/A_product/delete/{id}','ProductController@destroy');
 
 // user user
 Route::get('/Produk','UserProductController@index');
+
 Route::get('/Artikel','UserArtikelController@index');
-Route::get('/Artikel/detail','UserArtikelController@artikelDetail');
+Route::get('/readmore/{id}/','UserArtikelController@readmore');
+
 Route::get('/Kontak','UserContactController@index');
 Route::get('/Order','UserOrderController@index');
 Route::get('/Home','UhomeController@index');
