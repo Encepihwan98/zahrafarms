@@ -17,17 +17,15 @@
         "realrashid/sweet-alert": "^3.2",
         "symfony/dotenv": "^5.3",
         "uxweb/sweet-alert": "^2.0",
-        "yajra/laravel-datatables-oracle": "^9.15",
-        "silex/silex": "~1.1"
+        "yajra/laravel-datatables-oracle": "^9.15"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
         "fakerphp/faker": "^1.9.1",
-        "laravel/ui": "2.0",
+        "laravel/ui": "2.4",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^4.3",
-        "phpunit/phpunit": "^8.5.8|^9.3.3",
-        "phpspec/phpspec": "2.2.1"
+        "phpunit/phpunit": "^8.5.8|^9.3.3"
     },
     "config": {
         "optimize-autoloader": true,
