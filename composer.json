@@ -17,7 +17,8 @@
         "realrashid/sweet-alert": "^3.2",
         "symfony/dotenv": "^5.3",
         "uxweb/sweet-alert": "^2.0",
-        "yajra/laravel-datatables-oracle": "^9.15"
+        "yajra/laravel-datatables-oracle": "^9.15",
+        "silex/silex": "~1.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
