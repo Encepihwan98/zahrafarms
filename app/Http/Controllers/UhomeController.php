@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Blog;
 
 class UhomeController extends Controller
 {
@@ -12,8 +13,9 @@ class UhomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('users.home');
+    {   
+        $data = Blog::all();
+        return view('users.home',['blog' => $data]);
     }
 
     /**

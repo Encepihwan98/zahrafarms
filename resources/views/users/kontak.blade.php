@@ -38,9 +38,7 @@
         <div class="row">
             <div class="col-lg-5">
                 <div class="contact-title">
-                    <h4>Contacts Us</h4>
-                    <p>Contrary to popular belief, Lorem Ipsum is simply random text. It has roots in a piece of
-                        classical Latin literature from 45 BC, maki years old.</p>
+                    <h4>Kontak Kami</h4>
                 </div>
                 <div class="contact-widget">
                     <div class="cw-item">
@@ -48,8 +46,11 @@
                             <i class="ti-location-pin"></i>
                         </div>
                         <div class="ci-text">
-                            <span>Address:</span>
-                            <p>60-49 Road 11378 New York</p>
+                            <span>Alamat:</span>
+                            <p>Kp. Kangkareng Desa Cikoneng</p>
+                            <p>Kecamatan Ciparay </p>
+                            <p>Kabupaten Bandung</p>
+                            <p>Jawa Barat 40381,Indonesia</p>
                         </div>
                     </div>
                     <div class="cw-item">
@@ -57,8 +58,8 @@
                             <i class="ti-mobile"></i>
                         </div>
                         <div class="ci-text">
-                            <span>Phone:</span>
-                            <p>+65 11.188.888</p>
+                            <span>No Telp:</span>
+                            <p>0887-2424-584</p>
                         </div>
                     </div>
                     <div class="cw-item">
@@ -67,7 +68,7 @@
                         </div>
                         <div class="ci-text">
                             <span>Email:</span>
-                            <p>hellocolorlib@gmail.com</p>
+                            <p>zahrahfamr@gmail.com</p>
                         </div>
                     </div>
                 </div>
