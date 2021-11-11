@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Order;
+use App\Mail\OrderMail;
 
 class UserOrderController extends Controller
 {
@@ -13,7 +17,8 @@ class UserOrderController extends Controller
      */
     public function index()
     {
-        return view('users.order');
+        $datas = Product::all();
+        return view('users.order', ['products' => $datas]);
     }
 
     /**
@@ -34,7 +39,57 @@ class UserOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required',
+            'alamat' => 'required',
+            'email' => 'required|email:rfc,dns',
+            'phone' => 'required',
+            'qty' => 'required',
+            'product' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect('Order')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        $insert = new Order();
+        $insert->nama = $request->nama;
+        $insert->alamat = $request->alamat;
+        $insert->email = $request->email;
+        $insert->telp = $request->phone;
+        $insert->product = join(',', $request->product);
+        $insert->jumlah = join(',', $request->qty);
+        $insert->save();
+
+        $total = 0;
+        $date = $this->tgl_indo(date(explode(' ', $insert->created_at)[0]));
+        $i = 0;
+        foreach ($request->price as $value) {
+            $total += $value * $request->qty[$i];
+            $i++;
+        }
+
+
+        $order_detail = [
+            'id' => $insert->id,
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'products' => $request->product,
+            'price' => $request->price,
+            'image' => $request->image,
+            'qty' => $request->qty,
+            'total' => $total,
+            'order_date' => $date,
+        ];
+
+        // dd($order_detail);
+
+        \Mail::to('icksannugrahaa@gmail.com')->send(new OrderMail($order_detail));
+
+        return redirect('Order');
+        // return view('order.mail-template', ['body' => $order_detail]);
     }
 
     /**
@@ -80,5 +135,29 @@ class UserOrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    function tgl_indo($tanggal){
+        $bulan = array (
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+
+        // variabel pecahkan 0 = tanggal
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tahun
+
+        return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
     }
 }

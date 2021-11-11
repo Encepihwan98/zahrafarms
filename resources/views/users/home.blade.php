@@ -45,8 +45,8 @@
                     <div class="col-lg-5">
                         <span>Susu Kambing</span>
                         <h1>Susu Kefir</h1>
-                        <p>Susu kambing segar zahrah Farms, mengandung berbagai vitamin dan mineral, kefir juga mengandung 
-sedikit vitamin D. Tidak hanya itu, minuman ini juga dilengkapi probiotik yang 
+                        <p>Susu kambing segar zahrah Farms, mengandung berbagai vitamin dan mineral, kefir juga mengandung
+sedikit vitamin D. Tidak hanya itu, minuman ini juga dilengkapi probiotik yang
 menyehatkan sistem pencernaan</p>
                         <a href="#" class="primary-btn">Order Sekarang</a>
                     </div>
@@ -107,96 +107,33 @@ menyehatkan sistem pencernaan</p>
         <div class="row">
             <div class="col-lg-12">
                 <div class="product-slider owl-carousel">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{{url('theme/img/products/product-1.jpg')}}" alt="">
-                            <div class="sale">Sale</div>
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
+                    {{-- @dd($products) --}}
+                    @foreach ($products as $product)
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img height="500px" src="{{url('data_file/'.$product->foto)}}" alt="">
+                                <div class="sale">Sale</div>
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="/Order">+ Order</a></li>
+                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                </ul>
                             </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="/Order">+ Order</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Zahra Farms</div>
-                            <a href="#">
-                                <h5>Nama Product</h5>
-                            </a>
-                            <div class="product-price">
-                                $14.00
-                                <span>$35.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{{url('theme/img/products/product-2.jpg')}}" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="/Order">+ Order</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Zahra Farms</div>
-                            <a href="#">
-                                <h5>Nama Product</h5>
-                            </a>
-                            <div class="product-price">
-                                $13.00
+                            <div class="pi-text">
+                                <div class="catagory-name">Zahra Farms</div>
+                                <a href="#">
+                                    <h5>{{ $product->nama_produk }}</h5>
+                                </a>
+                                <div class="product-price">
+                                    {{ 'Rp. '.$product->harga }}
+                                    {{-- <span>$35.00</span> --}}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{{url('theme/img/products/product-3.jpg')}}" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="/Order">+ Order</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Zahra Farms</div>
-                            <a href="#">
-                                <h5>Nama Product</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{{url('theme/img/products/product-4.jpg')}}" alt="">
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
-                            </div>
-                            <ul>
-                                <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="/Order">+ Order</a></li>
-                                <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">Zahra Farms</div>
-                            <a href="#">
-                                <h5>Nama Product</h5>
-                            </a>
-                            <div class="product-price">
-                                $34.00
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 

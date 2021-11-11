@@ -40,10 +40,9 @@
                             <label for="fir">Pilih Product<span>*</span></label>
                             <select name="product" id="product">
                                 <option>Pilih Produk</option>
-                                <option value="Susu Kefir-19000">Susu Kefir</option>
-                                <option value="Kambing Potong-900000">Kambing Potong</option>
-                                <option value="Pembibitan-87000">Pembibitan</option>
-                                <option value="Penggemukan-150000">Penggemukan</option>
+                                @foreach ($products as $product)
+                                    <option value="{{ $product->nama_produk.'-'.$product->harga.'-'.$product->foto }}">{{ $product->nama_produk }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-lg-12 col-sm-12">
@@ -124,11 +123,17 @@
             function makeForm() {
                 let total = 0
                 $('#form-order').empty()
-                $('#form-order').append('<div class="col-lg-12" id="select-product"><label for="fir">Pilih Product<span>*</span></label><select name="product" id="product"><option>Pilih Produk</option><option value="Susu Kefir-19000">Susu Kefir</option><option value="Kambing Potong-900000">Kambing Potong</option><option value="Pembibitan-87000">Pembibitan</option><option value="Penggemukan-150000">Penggemukan</option></select></div>');
+                let selectForm = '<div class="col-lg-12" id="select-product"><label for="fir">Pilih Product<span>*</span></label><select name="product" id="product"><option>Pilih Produk</option>';
+                @foreach ($products as $product)
+                    selectForm += '<option value="{{ $product->nama_produk.'-'.$product->harga.'-'.$product->foto }}">{{ $product->nama_produk }}</option>'
+                @endforeach
+                selectForm += '</select></div>'
+                $('#form-order').append(selectForm);
                 formData.forEach(element => {
                     total += (parseInt(element['price']) * parseInt(element['qty']))
                     $('#form-order').append('<div class="col-lg-8 col-sm-8 col-xs-8"><label for="product-'+element['product']+'">Produk<span>*</span></label><input type="text" value="'+element['product']+'" name="product[]" id="product-'+element['product']+'" readonly></div><div class="col-lg-2 col-sm-2 col-xs-2"><label for="qty-'+element['product']+'">Qty<span>*</span></label><input type="text" value="'+element['qty']+'" id="qty-product" data-key="'+element['product']+'" name="qty[]"></div><div class="col-lg-2 col-sm-2 col-xs-2"><label for="act-'+element['product']+'">Action<span>*</span></label><button id="remove-product" data-key="'+element['product']+'" type="button" class="primary-btn" style="height: 30px; width:30px; margin: 10px; padding: 0px !important"><i class="ti-close"></i></button></div>');
                     $('#form-order').append('<input type="hidden" name="price[]" value="'+element['price']+'"></input>')
+                    $('#form-order').append('<input type="hidden" name="image[]" value="'+element['image']+'"></input>')
                 });
                 if(formData.length > 0) {
                     $('#form-order').append('<div class="col-lg-12 col-sm-12"><hr></div>')
@@ -140,13 +145,13 @@
                 }
                 $('#form-order').append('<div class="col-lg-12 col-sm-12"><hr></div>')
                 $('#form-order').append('<div class="col-lg-6 col-sm-6"><label>Total Keseluruhan<span>*</span></label></div><div class="col-lg-6 col-sm-6"><h3>'+formatRupiah(total.toString(), '.')+'</h3></div>');
-                
+
             }
             $("body").on("change", "#product", function(){
                 let selectVal = $('select[name=product] option').filter(':selected').val();
                 let data = selectVal.split('-')
                 let rmDuplicate = formData
-                rmDuplicate.push({'product': data[0], 'qty': 1, 'price': data[1]})
+                rmDuplicate.push({'product': data[0], 'qty': 1, 'price': data[1], 'image': data.slice(2,data.length).join('-')})
                 formData = getUniqueListBy(rmDuplicate, 'product');
                 makeForm()
             })

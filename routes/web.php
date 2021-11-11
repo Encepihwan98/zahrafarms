@@ -37,7 +37,7 @@ Route::post('/update/{id}','BlogController@update');
 Route::get('/delete/{id}','BlogController@destroy');
 
 Route::get('/list_order','OrderController@index');
-Route::post('/order/create','OrderController@store');
+Route::post('/order/create','UserOrderController@store');
 
 Route::get('/A_product','ProductController@index');
 Route::get('/A_product/create','ProductController@create');
@@ -66,14 +66,14 @@ Route::get('/localStorage', function(){
 });
 
 // Route::get('send-mail', function () {
-   
+
 //     $details = [
 //         'title' => 'Mail from ItSolutionStuff.com',
 //         'body' => 'This is for testing email using smtp'
 //     ];
-   
+
 //     \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\OrderMail($details));
-   
+
 //     dd("Email is Sent.");
 // });
 

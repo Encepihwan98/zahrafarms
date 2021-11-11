@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Order;
 use Illuminate\Support\Facades\Validator;
 use App\Mail\OrderMail;
+use App\Product;
 
 class OrderController extends Controller
 {
@@ -16,7 +17,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('admin.order');
+        $datas = Product::all();
+        return view('admin.order', ['products' => $datas]);
     }
 
     /**
@@ -59,7 +61,7 @@ class OrderController extends Controller
         $insert->product = join(',', $request->product);
         $insert->jumlah = join(',', $request->qty);
         $insert->save();
-        
+
         $total = 0;
         $date = $this->tgl_indo(date(explode(' ', $insert->created_at)[0]));
         $i = 0;
@@ -149,12 +151,12 @@ class OrderController extends Controller
             'Desember'
         );
         $pecahkan = explode('-', $tanggal);
-        
+
         // variabel pecahkan 0 = tanggal
         // variabel pecahkan 1 = bulan
         // variabel pecahkan 2 = tahun
-    
+
         return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
     }
-    
+
 }

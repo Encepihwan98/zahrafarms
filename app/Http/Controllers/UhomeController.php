@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use App\Product;
 
 class UhomeController extends Controller
 {
@@ -13,9 +14,10 @@ class UhomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $data = Blog::all();
-        return view('users.home',['blog' => $data]);
+        $products = Product::limit(5)->get();
+        return view('users.home',['blog' => $data, 'products' => $products]);
     }
 
     /**
