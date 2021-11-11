@@ -42,6 +42,8 @@ Route::post('/order/create','OrderController@store');
 Route::get('/A_product','ProductController@index');
 Route::get('/A_product/create','ProductController@create');
 Route::post('/A_product/save','ProductController@store');
+Route::get('/A_product/edit/{id}','ProductController@edit');
+Route::post('/A_product/update/{id}','ProductController@update');
 Route::get('/A_product/delete/{id}','ProductController@destroy');
 
 

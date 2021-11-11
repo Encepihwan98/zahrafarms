@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
-use App\Agenda;
+use App\Product;
 use Illuminate\Support\Facades\Redirect;
 use File;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -20,7 +20,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $datas = Agenda::all();
+        $datas = Product::all();
         return view('admin.product', ['data' => $datas]);
     }
 
@@ -42,7 +42,24 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Agenda::create($request->all());
+        $request->validate([
+            'foto' => 'required|mimes:jpg,png,jpeg|max:2048',
+        ]);
+        $foto = $request->file('foto');
+
+        $nama_foto = time()."_".$foto->getClientOriginalName();
+
+        $tujuan_upload = 'data_file';
+        $foto->move($tujuan_upload,$nama_foto);
+
+        Product::create([
+            'nama_produk' => $request->nama_produk,
+            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
+            'foto' => $nama_foto
+
+        ]);
+        Alert::success('Berhasil Insert', 'Data Berhasil dimasukkan');
         return Redirect('/A_product')->with('success', 'Task Created Successfully!');
     }
 
@@ -65,7 +82,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('admin.form_product_edit', ['product' => $product]);
     }
 
     /**
@@ -77,18 +95,35 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'foto' => 'required|mimes:jpg,png,jpeg|max:2048',
+        ]);
+        $foto = $request->file('foto');
+
+        $nama_foto = time()."_".$foto->getClientOriginalName();
+
+        $tujuan_upload = 'data_file';
+        $foto->move($tujuan_upload,$nama_foto);
+
+        $product = Product::find($id);
+        $product->update(['nama_produk' => $request->nama_produk,
+                        'harga' => $request->harga,
+                        'deskripsi' => $request->deskripsi,
+                        'foto' => $nama_foto,
+                    ]);
+        Alert::success('Berhasil Update', 'Data Berhasil di update');
+        return Redirect('/A_product')->with('success', 'Task Created Successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Responsea
      */
     public function destroy($id)
     {
-        $info = Agenda::find($id);
+        $info = Product::find($id);
         $info->delete();
         return Redirect('/A_product')->with('msg','Data Berhasil di hapus');
     }
