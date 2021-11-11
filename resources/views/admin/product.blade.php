@@ -57,13 +57,13 @@
               <tbody>
             @foreach ($data as $datas)
                 <tr>
-                  <td>{{$loop->iteration}}</td>
+                  <td>{{$datas->id}}</td>
+                  <td>{{$datas->nama_produk}}</td>
+                  <td>{{$datas->harga}}</td>
                   <td>{{$datas->deskripsi}}</td>
-                  <td>{{$datas->tanggal}}</td>
-                  <td>{{$datas->tanggal}}</td>
-                  <td><img width="100px" src=""></td>
+                  <td><img width="100px" src="/data_file/{{$datas->foto}}"></td>
                   <td>
-                  <a href="/edit/{{$datas->id}}"><span class="fa fa-pencil-square"></span></a>
+                  <a href="/A_product/edit/{{$datas->id}}"><span class="fa fa-pencil-square"></span></a>
                     <a href="/A_product/delete/{{$datas->id}}" onclick="confirm('yakin akan di hapus?')"><span class="fa fa-trash"></span></a>
                   </td>
                 </tr>

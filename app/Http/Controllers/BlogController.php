@@ -90,7 +90,7 @@ class BlogController extends Controller
     {
         $blogs = Blog::find($id);
         /* dump($blogs); */
-        return view('admin.form_blog_edit', ['blog' => $blogs]);
+        return view('admin.form_blog_edit')->with('blog', $blogs);
     }
 
     /**
