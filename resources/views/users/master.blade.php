@@ -38,7 +38,7 @@
                 <div class="ht-left">
                     <div class="mail-service">
                         <i class=" fa fa-envelope"></i>
-                        hello.colorlib@gmail.com
+                        zahrahfamr@gmail.com
                     </div>
                     <div class="phone-service">
                         <i class=" fa fa-phone"></i>
@@ -88,13 +88,13 @@
                             <li class="heart-icon">
                                 <a href="#">
                                     <i class="icon_heart_alt"></i>
-                                    <span>1</span>
+                                    <span>0</span>
                                 </a>
                             </li>
                             <li class="cart-icon">
                                 <a href="#">
                                     <i class="icon_bag_alt"></i>
-                                    <span>3</span>
+                                    <span>0</span>
                                 </a>
                             </li>
                             <!-- <li class="cart-price">$150.00</li> -->
@@ -109,9 +109,10 @@
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="/Home">Home</a></li>
+                        <li><a href="/Home">Home</a></li>
                         <li><a href="/Produk">Produk</a></li>
                         <li><a href="/Artikel">Artikel</a></li>
+                        <li><a href="/Order">Order</a></li>
                         <li><a href="/Kontak">Kontak</a></li>
                     </ul>
                 </nav>
@@ -139,7 +140,7 @@
                             <li>Kecamatan Ciparay</li>
                             <li>Kabupaten Bandung</li>
                             <li>Phone : 0887-2424-584 </li>
-                            <li>Email : hello.colorlib@gmail.com</li>
+                            <li>Email : zahrahfamr@gmail.com</li>
                         </ul>
                         <div class="footer-social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
