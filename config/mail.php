@@ -39,8 +39,8 @@ return [
             'host' => env('MAIL_HOST', 'smtp.gmail.com'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME', 'icksannugrahaa2@gmail.com'),
-            'password' => env('MAIL_PASSWORD', 'ypswbjftjhsmyevl'),
+            'username' => env('MAIL_USERNAME', 'zahrahfarmbdg@gmail.com'),
+            'password' => env('MAIL_PASSWORD', 'tlvmtgpnfyxsqfxw'),
             'timeout' => null,
             'auth_mode' => null,
             'stream' => [
@@ -91,7 +91,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'icksannugrahaa2@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'zahrahfarmbdg@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'Zahrah Farm'),
     ],
 
