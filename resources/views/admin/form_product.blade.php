@@ -18,7 +18,7 @@
           <div class="form-group row ">
             <label class="control-label col-md-3 col-sm-3 ">Nama Product</label>
             <div class="col-md-9 col-sm-9 ">
-              <input type="text" name="nama_produk" class="form-control" >
+              <input type="text" name="nama_product" class="form-control" >
             </div>
           </div>
 

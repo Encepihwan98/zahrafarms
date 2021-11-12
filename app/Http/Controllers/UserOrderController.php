@@ -86,7 +86,7 @@ class UserOrderController extends Controller
 
         // dd($order_detail);
 
-        \Mail::to('icksannugrahaa@gmail.com')->send(new OrderMail($order_detail));
+        \Mail::to('zahrahfarmbdg@gmail.com')->send(new OrderMail($order_detail));
 
         return redirect('Order');
         // return view('order.mail-template', ['body' => $order_detail]);
