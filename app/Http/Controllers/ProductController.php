@@ -53,7 +53,7 @@ class ProductController extends Controller
         $foto->move($tujuan_upload,$nama_foto);
 
         Product::create([
-            'nama_produk' => $request->nama_produk,
+            'nama_product' => $request->nama_product,
             'harga' => $request->harga,
             'deskripsi' => $request->deskripsi,
             'foto' => $nama_foto
@@ -106,7 +106,7 @@ class ProductController extends Controller
         $foto->move($tujuan_upload,$nama_foto);
 
         $product = Product::find($id);
-        $product->update(['nama_produk' => $request->nama_produk,
+        $product->update(['nama_product' => $request->nama_product,
                         'harga' => $request->harga,
                         'deskripsi' => $request->deskripsi,
                         'foto' => $nama_foto,
@@ -124,6 +124,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $info = Product::find($id);
+        File::delete('data_file/'.$info->foto);
         $info->delete();
         return Redirect('/A_product')->with('msg','Data Berhasil di hapus');
     }
