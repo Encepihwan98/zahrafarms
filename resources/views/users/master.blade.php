@@ -38,7 +38,7 @@
                 <div class="ht-left">
                     <div class="mail-service">
                         <i class=" fa fa-envelope"></i>
-                        zahrahfamr@gmail.com
+                        zahrahfarmbdg@gmail.com
                     </div>
                     <div class="phone-service">
                         <i class=" fa fa-phone"></i>
@@ -133,14 +133,14 @@
                 <div class="col-lg-3">
                     <div class="footer-left">
                         <div class="footer-logo">
-                            <a href="#"><img src="{{url('theme/img/footer-logo.png')}}" alt=""></a>
+                            <a href="#"><img src="{{url('theme/img/zahrahfarm.png')}}" alt=""></a>
                         </div>
                         <ul>
                             <li>Kp. Kangkareng Desa Cikoneng</li>
                             <li>Kecamatan Ciparay</li>
                             <li>Kabupaten Bandung</li>
                             <li>Phone : 0887-2424-584 </li>
-                            <li>Email : zahrahfamr@gmail.com</li>
+                            <li>Email : zahrahfarmbdg@gmail.com</li>
                         </ul>
                         <div class="footer-social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
